@@ -172,24 +172,24 @@ func OSQLog(c *gin.Context) {
 	}
 
 	if req.Type == "result" {
-		var result osquery.LogResultType
+		var results []osquery.LogResultType
 
-		if err := json.Unmarshal(req.Data, &result); err != nil {
+		if err := json.Unmarshal(req.Data, &results); err != nil {
 			helpers.JsonError(c, 500, err)
 			return
 		}
 
-		log.Info(result)
+		log.Info(results)
 
 	} else if req.Type == "status" {
-		var status osquery.LogStatusType
+		var statuses []osquery.LogStatusType
 
-		if err := json.Unmarshal(req.Data, &status); err != nil {
+		if err := json.Unmarshal(req.Data, &statuses); err != nil {
 			helpers.JsonError(c, 500, err)
 			return
 		}
 
-		log.Info(status)
+		log.Info(statuses)
 
 	} else {
 		log.Error("unknown log type: ", req.Type)

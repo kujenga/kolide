@@ -81,6 +81,8 @@
 
   This will drop a kolide.crt and kolide.key into ./tmp and copy them to /tmp
 
+  For local development, replace `kolide.io` with `localhost`.
+
 ## Running Kolide
 
   ```
